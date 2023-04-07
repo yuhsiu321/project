@@ -31,13 +31,11 @@ public class TourListView implements Initializable{
         tableView.setItems(tourListViewModel.getTourListItems());
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
-        TableColumn id = new TableColumn("ID");
-        id.setCellValueFactory(new PropertyValueFactory("id"));
-        TableColumn name = new TableColumn("NAME");
+
+        TableColumn name = new TableColumn("List");
         name.setCellValueFactory(new PropertyValueFactory("name"));
-        TableColumn description = new TableColumn("DESCRIPTION");
-        description.setCellValueFactory(new PropertyValueFactory("tourDescription"));
-        tableView.getColumns().addAll(id, name, description);
+
+        tableView.getColumns().addAll(name);
 
         dataContainer.getChildren().add(tableView);
         tourListViewModel.initList();

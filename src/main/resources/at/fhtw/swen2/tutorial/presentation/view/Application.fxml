@@ -29,14 +29,15 @@
                <content>
                   <SplitPane disable="true" dividerPositions="0.31775">
                     <items>
-                        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
-                           <children>
-                               <fx:include source="NewTour.fxml" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                           </children>
+                        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="338.0" prefWidth="251.0">
                             <children>
-                                <fx:include source="TourList.fxml" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
-                                <VBox layoutX="0.0" layoutY="25.0" prefHeight="120.0" prefWidth="100.0" />
+                                <fx:include source="Control.fxml" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                             </children>
+                            <children>
+                                <fx:include source="TourList.fxml" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0" />
+                                <VBox layoutX="-6.0" layoutY="223.0" prefHeight="120.0" prefWidth="100.0" />
+                            </children>
+
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="319.0" prefWidth="542.0">
                            <children>

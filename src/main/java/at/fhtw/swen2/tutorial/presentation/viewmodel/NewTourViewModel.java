@@ -98,7 +98,7 @@ public class NewTourViewModel {
 
 
     public void addNewPerson() {
-        Tour tour = Tour.builder().name(getName()).tourDescription("true").from(getFrom()).to(getTo()).build();
+        Tour tour = Tour.builder().name(getName()).tourDescription(getTourDescription()).from(getFrom()).to(getTo()).build();
         tour = tourService.addNew(tour);
         tourListViewModel.addItem(tour);
         System.out.println(tour);
