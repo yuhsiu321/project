@@ -24,4 +24,8 @@ public class TourEntity {
     private String from;
     @Column(name = "TO_WHERE")
     private String to;
+    private String transportType;
+    private Integer tourDistance;
+    private Integer estimatedTime;
+    private String routeInformation;
 }

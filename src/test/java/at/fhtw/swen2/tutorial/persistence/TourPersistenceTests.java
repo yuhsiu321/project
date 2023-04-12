@@ -14,11 +14,11 @@ class TourPersistenceTests {
 
 	@Test
 	void testPersonRepository() {
-		TourEntity maxi = TourEntity.builder()
-				.name("Maxi")
-				.tourDescription("maxi@email.com")
+		TourEntity first = TourEntity.builder()
+				.name("First")
+				.tourDescription("hi")
 				.build();
-		tourRepository.save(maxi);
+		tourRepository.save(first);
 		tourRepository.findAll().forEach(System.out::println);
 	}
 

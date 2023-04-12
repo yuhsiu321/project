@@ -19,6 +19,7 @@ import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 @Component
@@ -30,7 +31,7 @@ public class ControlView implements Initializable {
     @FXML
     public Button moreButton;
     @FXML
-    Button createButton;
+    private Button createButton;
 
 
     @Override
@@ -45,10 +46,13 @@ public class ControlView implements Initializable {
     }
 
     private void handleNewTour() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("NewTour.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateTour.fxml"));
+        Parent root = loader.load();
 
         Stage stage = new Stage();
-        stage.setTitle("create");
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Create Tour");
         stage.show();
     }
 }
