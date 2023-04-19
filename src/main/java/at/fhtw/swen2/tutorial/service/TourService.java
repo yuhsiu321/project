@@ -4,7 +4,7 @@ import at.fhtw.swen2.tutorial.service.dto.Tour;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-@Component
+
 public interface TourService {
 
     List<Tour> getTourList();

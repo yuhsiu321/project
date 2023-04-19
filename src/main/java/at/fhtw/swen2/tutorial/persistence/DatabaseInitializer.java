@@ -21,6 +21,7 @@ public class DatabaseInitializer implements InitializingBean {
         tourList.add(TourEntity.builder().id(5L).name("First").tourDescription("1").from("here").to("there").build());
         tourList.add(TourEntity.builder().id(7L).name("Second").tourDescription("2").from("here").to("there").build());
         tourList.add(TourEntity.builder().id(11L).name("Third").tourDescription("3").from("here").to("there").build());
+        tourRepository.deleteAll();
         tourRepository.saveAll(tourList);
     }
 }
