@@ -24,13 +24,10 @@ import java.util.ResourceBundle;
 @Slf4j
 public class CreateTourView extends Dialog<Void> implements Initializable{
 
-    @Autowired
-    private CreateTourViewModel createTourViewModel;
-
-    @Autowired
-    private TourService tourService;
-    @Autowired
-    private TourListViewModel tourListViewModel;
+    @FXML
+    private TextField toTextField;
+    @FXML
+    private TextField fromTextField;
 
     @FXML
     private TextField nameTextField;
@@ -39,23 +36,18 @@ public class CreateTourView extends Dialog<Void> implements Initializable{
     @FXML
     private Button submitButton;
 
+    @Autowired
+    private CreateTourViewModel createTourViewModel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         nameTextField.textProperty().bindBidirectional(createTourViewModel.nameProperty());
         desTextField.textProperty().bindBidirectional(createTourViewModel.tourDescriptionProperty());
+        fromTextField.textProperty().bindBidirectional(createTourViewModel.fromProperty());
+        toTextField.textProperty().bindBidirectional(createTourViewModel.toProperty());
     }
 
     public void submitButtonAction(ActionEvent event) {
-        //nameTextField.textProperty().bindBidirectional(createTourViewModel.nameProperty());
-        //desTextField.textProperty().bindBidirectional(createTourViewModel.tourDescriptionProperty());
-        //this.tourService = tourService;
-        /*Tour tour = Tour.builder().name(nameTextField.getText()).tourDescription(desTextField.getText()).from("here").to("there").build();
-        tour = this.tourService.addNew(tour);
-        tourListViewModel.addItem(tour);
-        */
-        //nameTextField.textProperty().bindBidirectional(createTourViewModel.nameProperty());
-        //desTextField.textProperty().bindBidirectional(createTourViewModel.tourDescriptionProperty());
 
         createTourViewModel.addNewTour();
     }
