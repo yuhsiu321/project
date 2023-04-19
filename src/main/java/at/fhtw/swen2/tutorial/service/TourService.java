@@ -11,6 +11,8 @@ public interface TourService {
 
     Tour addNew(Tour tour);
 
+    Tour delete(Tour tour);
+
     // erweitern mit parameter create new service
 
 }
