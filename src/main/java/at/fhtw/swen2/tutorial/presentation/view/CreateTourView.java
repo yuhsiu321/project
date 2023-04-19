@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.TextField;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ import java.util.ResourceBundle;
 @Component
 @Scope("prototype")
 @Slf4j
-public class CreateTourView{
+public class CreateTourView extends Dialog<Void> implements Initializable{
 
     @Autowired
     private CreateTourViewModel createTourViewModel;
@@ -39,15 +40,15 @@ public class CreateTourView{
     private Button submitButton;
 
 
-    /*@Override
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         nameTextField.textProperty().bindBidirectional(createTourViewModel.nameProperty());
         desTextField.textProperty().bindBidirectional(createTourViewModel.tourDescriptionProperty());
-    }*/
+    }
 
     public void submitButtonAction(ActionEvent event) {
-        nameTextField.textProperty().bindBidirectional(createTourViewModel.nameProperty());
-        desTextField.textProperty().bindBidirectional(createTourViewModel.tourDescriptionProperty());
+        //nameTextField.textProperty().bindBidirectional(createTourViewModel.nameProperty());
+        //desTextField.textProperty().bindBidirectional(createTourViewModel.tourDescriptionProperty());
         //this.tourService = tourService;
         /*Tour tour = Tour.builder().name(nameTextField.getText()).tourDescription(desTextField.getText()).from("here").to("there").build();
         tour = this.tourService.addNew(tour);

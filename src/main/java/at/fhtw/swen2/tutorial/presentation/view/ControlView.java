@@ -1,5 +1,6 @@
 package at.fhtw.swen2.tutorial.presentation.view;
 
+import at.fhtw.swen2.tutorial.presentation.ViewManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,6 +12,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -33,6 +35,9 @@ public class ControlView implements Initializable {
     @FXML
     private Button createButton;
 
+    @Autowired
+    private ViewManager viewManager;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -46,13 +51,9 @@ public class ControlView implements Initializable {
     }
 
     private void handleNewTour() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateTour.fxml"));
-        Parent root = loader.load();
-
+        Parent parent = viewManager.load("at/fhtw/swen2/tutorial/presentation/view/CreateTour");
         Stage stage = new Stage();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Create Tour");
+        stage.setScene(new Scene(parent));
         stage.show();
     }
 }

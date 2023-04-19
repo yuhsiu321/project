@@ -35,8 +35,8 @@ public class TourServiceImpl implements TourService {
     }
 
     @Override
-    public Tour delete(Tour tour) {
-        return null;
+    public void delete(Tour tour) {
+        tourRepository.delete(tourMapper.toEntity(tour));
     }
 
 }
