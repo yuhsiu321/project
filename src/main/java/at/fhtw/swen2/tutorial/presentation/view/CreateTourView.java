@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.TextField;
 import lombok.extern.slf4j.Slf4j;
@@ -24,6 +25,8 @@ import java.util.ResourceBundle;
 @Slf4j
 public class CreateTourView extends Dialog<Void> implements Initializable{
 
+    @FXML
+    public ChoiceBox transportType;
     @FXML
     private TextField toTextField;
     @FXML
@@ -45,10 +48,11 @@ public class CreateTourView extends Dialog<Void> implements Initializable{
         desTextField.textProperty().bindBidirectional(createTourViewModel.tourDescriptionProperty());
         fromTextField.textProperty().bindBidirectional(createTourViewModel.fromProperty());
         toTextField.textProperty().bindBidirectional(createTourViewModel.toProperty());
+        transportType.valueProperty().bindBidirectional(createTourViewModel.transportTypeProperty());
     }
 
     public void submitButtonAction(ActionEvent event) {
-
+        System.out.println(transportType.getValue());
         createTourViewModel.addNewTour();
     }
 

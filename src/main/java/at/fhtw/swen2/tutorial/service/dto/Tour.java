@@ -12,5 +12,6 @@ public class Tour {
     private String tourDescription;
     private String from;
     private String to;
+    private String transportType;
 
 }

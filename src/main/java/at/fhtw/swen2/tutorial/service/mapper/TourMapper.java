@@ -15,6 +15,7 @@ public class TourMapper extends AbstractMapper<TourEntity, Tour> {
                 .tourDescription(entity.getTourDescription())
                 .from(entity.getFrom())
                 .to(entity.getTo())
+                .transportType(entity.getTransportType())
                 .build();
     }
 
@@ -26,6 +27,7 @@ public class TourMapper extends AbstractMapper<TourEntity, Tour> {
                 .tourDescription(tour.getTourDescription())
                 .from(tour.getFrom())
                 .to(tour.getTo())
+                .transportType(tour.getTransportType())
                 .build();
     }
 

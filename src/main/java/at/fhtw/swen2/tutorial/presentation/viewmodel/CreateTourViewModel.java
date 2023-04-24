@@ -2,10 +2,7 @@ package at.fhtw.swen2.tutorial.presentation.viewmodel;
 
 import at.fhtw.swen2.tutorial.service.TourService;
 import at.fhtw.swen2.tutorial.service.dto.Tour;
-import javafx.beans.property.LongProperty;
-import javafx.beans.property.SimpleLongProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,6 +18,20 @@ public class CreateTourViewModel{
     private SimpleStringProperty tourDescription = new SimpleStringProperty();
     private SimpleStringProperty from = new SimpleStringProperty();
     private SimpleStringProperty to = new SimpleStringProperty();
+
+    private ObjectProperty<String> transportType = new SimpleObjectProperty<>();
+
+    public String getTransportType() {
+        return transportType.get();
+    }
+
+    public ObjectProperty<String> transportTypeProperty() {
+        return transportType;
+    }
+
+    public void setTransportType(String transportType) {
+        this.transportType.set(transportType);
+    }
 
     public String getFrom() {
         return from.get();
@@ -73,6 +84,7 @@ public class CreateTourViewModel{
         this.tourDescription = new SimpleStringProperty(tour.getTourDescription());
         this.from = new SimpleStringProperty(tour.getFrom());
         this.to = new SimpleStringProperty(tour.getTo());
+        this.transportType = new SimpleObjectProperty<>(tour.getTransportType());
     }
 
     public long getId() {
@@ -101,7 +113,7 @@ public class CreateTourViewModel{
 
 
     public void addNewTour() {
-        Tour tour = Tour.builder().name(getName()).tourDescription(getTourDescription()).from(getFrom()).to(getTo()).build();
+        Tour tour = Tour.builder().name(getName()).tourDescription(getTourDescription()).from(getFrom()).to(getTo()).transportType(getTransportType()).build();
         tour = tourService.addNew(tour);
         tourListViewModel.addItem(tour);
         System.out.println(tour);
