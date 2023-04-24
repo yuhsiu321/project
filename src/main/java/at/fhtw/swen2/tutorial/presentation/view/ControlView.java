@@ -48,10 +48,24 @@ public class ControlView implements Initializable {
                 throw new RuntimeException(e);
             }
         });
+        deleteButton.setOnAction(event -> {
+            try {
+                handleDelete();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 
     private void handleNewTour() throws IOException {
         Parent parent = viewManager.load("at/fhtw/swen2/tutorial/presentation/view/CreateTour");
+        Stage stage = new Stage();
+        stage.setScene(new Scene(parent));
+        stage.show();
+    }
+
+    private void handleDelete() throws IOException{
+        Parent parent = viewManager.load("at/fhtw/swen2/tutorial/presentation/view/DeleteTour");
         Stage stage = new Stage();
         stage.setScene(new Scene(parent));
         stage.show();

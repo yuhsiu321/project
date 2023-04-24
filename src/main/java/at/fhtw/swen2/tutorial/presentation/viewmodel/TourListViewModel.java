@@ -30,6 +30,11 @@ public class TourListViewModel {
         masterData.add(tour);
     }
 
+    public void deleteItem(Tour tour){
+        tourListItems.remove(tour);
+        masterData.remove(tour);
+    }
+
     public void clearItems(){ tourListItems.clear(); }
 
     public void initList(){

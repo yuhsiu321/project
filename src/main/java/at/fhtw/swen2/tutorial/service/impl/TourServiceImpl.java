@@ -35,8 +35,19 @@ public class TourServiceImpl implements TourService {
     }
 
     @Override
-    public void delete(Tour tour) {
-        tourRepository.delete(tourMapper.toEntity(tour));
+    public void delete(String name) {
+        //TourEntity entity = tourRepository.findByName(name);
+        tourRepository.delete(tourRepository.findByName(name));
+    }
+
+    @Override
+    public Tour findByName(String name) {
+        if(name == null){
+            return null;
+        }
+        TourEntity tourEntity = tourRepository.findByName(name);
+
+        return tourMapper.fromEntity(tourEntity);
     }
 
 }

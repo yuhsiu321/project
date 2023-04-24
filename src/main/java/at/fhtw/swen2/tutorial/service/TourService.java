@@ -11,7 +11,9 @@ public interface TourService {
 
     Tour addNew(Tour tour);
 
-    void delete(Tour tour);
+    void delete(String name);
+
+    Tour findByName(String name);
 
     // erweitern mit parameter create new service
 

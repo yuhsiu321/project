@@ -28,4 +28,5 @@ public class TourEntity {
     private Integer tourDistance;
     private Integer estimatedTime;
     private String routeInformation;
+
 }
