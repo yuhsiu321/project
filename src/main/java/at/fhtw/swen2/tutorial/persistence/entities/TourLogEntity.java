@@ -5,10 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.sql.Time;
 
 @Data
 @Builder
@@ -20,4 +18,13 @@ public class TourLogEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private Time time;
+    private String comment;
+    private String difficulty;
+    private Double totalTime;
+    private String rating;
+
+    @ManyToOne
+    @JoinColumn(name = "tour_id")
+    private TourEntity tourEntity;
 }

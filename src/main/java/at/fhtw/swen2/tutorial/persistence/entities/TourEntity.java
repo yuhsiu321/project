@@ -1,11 +1,13 @@
 package at.fhtw.swen2.tutorial.persistence.entities;
 
+import at.fhtw.swen2.tutorial.service.dto.TourLog;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @Builder
@@ -28,5 +30,8 @@ public class TourEntity {
     private Integer tourDistance;
     private Integer estimatedTime;
     private String routeInformation;
+
+    @OneToMany(mappedBy = "tourEntity")
+    Set<TourLogEntity> tourLogSet;
 
 }
