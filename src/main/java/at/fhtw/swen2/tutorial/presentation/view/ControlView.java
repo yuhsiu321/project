@@ -35,6 +35,8 @@ public class ControlView implements Initializable {
     @FXML
     private Button createButton;
 
+
+
     @Autowired
     private ViewManager viewManager;
 
@@ -55,6 +57,13 @@ public class ControlView implements Initializable {
                 throw new RuntimeException(e);
             }
         });
+        moreButton.setOnAction(event -> {
+            try {
+                handleUpdate();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 
     private void handleNewTour() throws IOException {
@@ -66,6 +75,12 @@ public class ControlView implements Initializable {
 
     private void handleDelete() throws IOException{
         Parent parent = viewManager.load("at/fhtw/swen2/tutorial/presentation/view/DeleteTour");
+        Stage stage = new Stage();
+        stage.setScene(new Scene(parent));
+        stage.show();
+    }
+    private void handleUpdate() throws IOException{
+        Parent parent = viewManager.load("at/fhtw/swen2/tutorial/presentation/view/FindUpdateTour");
         Stage stage = new Stage();
         stage.setScene(new Scene(parent));
         stage.show();
