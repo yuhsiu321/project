@@ -27,9 +27,10 @@ public class TourEntity {
     @Column(name = "TO_WHERE")
     private String to;
     private String transportType;
-    private Integer tourDistance;
+    private Double tourDistance;
     private Integer estimatedTime;
     private String routeInformation;
+    private String sessionId;
 
     @OneToMany(mappedBy = "tourEntity")
     Set<TourLogEntity> tourLogSet;

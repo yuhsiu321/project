@@ -15,6 +15,10 @@ public class NewTourViewModel {
     private SimpleStringProperty from = new SimpleStringProperty();
     private SimpleStringProperty to = new SimpleStringProperty();
 
+    private String apiKey = "vpYWl32FtXtF2BrrnpC5V94yYIqFkodG";
+
+    private String baseUrl = "https://www.mapquestapi.com/directions/v2/route?key=" + apiKey;
+
     public String getFrom() {
         return from.get();
     }
