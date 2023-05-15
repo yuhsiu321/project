@@ -179,20 +179,30 @@ public class CreateTourViewModel{
         }
         //System.out.println(totalDistance);
         //System.out.println(totalTime);
+        String imageUrl = "https://www.mapquestapi.com/staticmap/v5/map?key="+apiKey+"&size=640,480&session="+sessionId;
 
 
+        URL ImageUrl = new URL(imageUrl);
+
+        BufferedImage image = ImageIO.read(ImageUrl);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ImageIO.write(image, "jpg", baos);
+        byte[] imageData = baos.toByteArray();
+
+        //System.out.println(imageData);
         this.distance = totalDistance;
         this.time = totalTime;
+        this.sessionId = imageData.toString();
 
     }
 
     public void addNewTour() throws IOException {
         setDistanceAndTime();
         Tour tour = Tour.builder().name(getName()).tourDescription(getTourDescription()).from(getFrom()).to(getTo()).transportType(getTransportType()).distance(getDistance()).time(getTime()).sessionId(getSessionId()).build();
-        System.out.println(tour);
+        //System.out.println(tour);
         tour = tourService.addNew(tour);
         tourListViewModel.addItem(tour);
-        System.out.println(tour);
+        //System.out.println(tour);
     }
 
 

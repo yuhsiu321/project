@@ -18,7 +18,8 @@ public class TourLogEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Time time;
+    @Column(name = "LOG_TIME")
+    private Double time;
     private String comment;
     private String difficulty;
     private Double totalTime;

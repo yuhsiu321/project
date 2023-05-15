@@ -32,7 +32,7 @@ public class TourListView implements Initializable{
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
 
-        TableColumn name = new TableColumn("List");
+        TableColumn name = new TableColumn("Tour List");
         name.setCellValueFactory(new PropertyValueFactory("name"));
 
         tableView.getColumns().addAll(name);

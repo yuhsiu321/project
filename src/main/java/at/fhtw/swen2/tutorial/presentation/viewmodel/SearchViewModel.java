@@ -10,7 +10,8 @@ public class SearchViewModel {
 
     @Autowired
     private TourListViewModel tourListViewModel;
-
+    @Autowired
+    private TourLogListViewModel tourLogListViewModel;
     private SimpleStringProperty searchString = new SimpleStringProperty();
 
 
@@ -28,6 +29,7 @@ public class SearchViewModel {
 
     public void search() {
         tourListViewModel.filterList(getSearchString());
+        tourLogListViewModel.filterList(getSearchString());
     }
 
 }
